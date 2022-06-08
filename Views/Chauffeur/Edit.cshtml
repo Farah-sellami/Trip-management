@@ -1,0 +1,44 @@
+﻿@model HappyTrip.Models.Chauffeur
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<center style="color:coral">
+    <h1>Edit Chauffeur</h1>
+</center>
+<hr />
+<div class="row" style="background-color:aliceblue">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="idChauffeur" />
+            <div class="form-group">
+                <label asp-for="cinChauffeur" class="control-label"></label>
+                <input asp-for="cinChauffeur" class="form-control" />
+                <span asp-validation-for="cinChauffeur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nomChauffeur" class="control-label"></label>
+                <input asp-for="nomChauffeur" class="form-control" />
+                <span asp-validation-for="nomChauffeur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="typePermis" class="control-label"></label>
+                <input asp-for="typePermis" class="form-control" />
+                <span asp-validation-for="typePermis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

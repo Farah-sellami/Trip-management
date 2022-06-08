@@ -1,0 +1,38 @@
+﻿@model HappyTrip.Models.Autobus
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<center style="color:coral">
+    <h1>Creation Autobus</h1>
+</center>
+<hr />
+<div class="row" style="background-color:aliceblue">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="matricule" class="control-label"></label>
+                <input asp-for="matricule" class="form-control" />
+                <span asp-validation-for="matricule" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="capacite" class="control-label"></label>
+                <input asp-for="capacite" class="form-control" />
+                <span asp-validation-for="capacite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

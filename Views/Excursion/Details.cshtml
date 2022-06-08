@@ -1,0 +1,50 @@
+﻿@model HappyTrip.Models.Excursion
+
+@{
+    ViewData["Title"] = "Details";
+    var photoPath = "~/images/" + (Model.imageExcur ?? "noimage.jpg");
+}
+
+<center style="color:coral">
+    <h1>Details Excursion</h1>
+    </center>
+    <div>
+
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.lieuExcur) 
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.lieuExcur)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.prixExcur)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.prixExcur)
+            </dd>
+
+           
+            <dt class="col-sm-2">
+                <label><b>Photo</b> </label>
+            </dt>
+            <dd class="col-sm-10">
+                <div class="card-body text-left">
+                    <img src="@photoPath" asp-append-version="true" height="500" width="600" />
+                </div>
+            </dd>
+
+
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.idExcur">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>

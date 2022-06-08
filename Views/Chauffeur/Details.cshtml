@@ -1,0 +1,36 @@
+﻿@model HappyTrip.Models.Chauffeur
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Chauffeur</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.cinChauffeur)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.cinChauffeur)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nomChauffeur)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nomChauffeur)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.typePermis)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.typePermis)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.idChauffeur">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

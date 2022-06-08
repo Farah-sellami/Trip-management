@@ -1,0 +1,53 @@
+﻿@model HappyTrip.Models.Voyage
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<center style="color:coral">
+    <h1>creation voyage</h1>
+</center>
+<hr />
+<div class="row" style="background-color:aliceblue">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DateDep" class="control-label"></label>
+                <input asp-for="DateDep" class="form-control" />
+                <span asp-validation-for="DateDep" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateRetour" class="control-label"></label>
+                <input asp-for="DateRetour" class="form-control" />
+                <span asp-validation-for="DateRetour" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="idAutobus" class="control-label"></label>
+                <select asp-for="idAutobus" class="form-control" asp-items="ViewBag.idAutobus"></select>
+                <span asp-validation-for="idAutobus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="idChauffeur" class="control-label"></label>
+                <select asp-for="idChauffeur" class="form-control" asp-items="ViewBag.idChauffeur"></select>
+                <span asp-validation-for="idChauffeur" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="idExcur" class="control-label"></label>
+                <select asp-for="idExcur" class="form-control" asp-items="ViewBag.idExcur"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

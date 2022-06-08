@@ -1,0 +1,39 @@
+﻿@model HappyTrip.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "User Login";
+}
+<center style="color:coral"><h1>Login</h1> </center>
+@{
+    var returnUrl = Context.Request.Query["ReturnUrl"];
+}
+
+
+    <div class="row" style="background-color:aliceblue">
+
+
+        <div class="col-md-12">
+            <form class="form-box" asp-route-returnurl="@returnUrl" method="post">
+                <div class="header-text" asp-validation-summary="All" ></div>
+                    <div class="form-box">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label asp-for="RememberMe">
+                                <input asp-for="RememberMe" />
+                                @Html.DisplayNameFor(m => m.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>

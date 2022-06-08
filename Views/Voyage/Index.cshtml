@@ -1,0 +1,95 @@
+﻿
+@model IEnumerable<HappyTrip.Models.Voyage>
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<center style="color:coral">
+    <h1>Voyage</h1>
+</center>
+<div>
+    @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+    {
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateDep)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateRetour)
+                </th>
+
+                @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.Autobus)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Chauffeur)
+                    </th>
+                }
+                    <th>
+                        @Html.DisplayNameFor(model => model.Excursion)
+                    </th>
+
+
+                    <th></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateDep)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateRetour)
+                    </td>
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.idAutobus)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.idChauffeur)
+                        </td>
+                    }
+                        <td>
+                            @Html.DisplayFor(modelItem => item.idExcur)
+                        </td>
+                    
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                    {
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.idVoyage">
+                                <img src="https://img.icons8.com/fluency/25/undefined/edit.png" />
+                            </a> |
+                            <a asp-action="Details" asp-route-id="@item.idVoyage">
+                                <img src="https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/25/undefined/external-view-graphic-design-icongeek26-linear-colour-icongeek26.png" />
+                            </a> |
+                            <a asp-action="Delete" asp-route-id="@item.idVoyage">
+                                <img src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/25/undefined/external-delete-user-interface-wanicon-lineal-color-wanicon.png" />
+                            </a>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="Index" asp-controller="Voyage"> All Voyages</a>
+
+</div>

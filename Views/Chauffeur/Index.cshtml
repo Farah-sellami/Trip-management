@@ -1,0 +1,68 @@
+﻿@model IEnumerable<HappyTrip.Models.Chauffeur>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<center style="color:coral">
+    <h1>Chauffeurs</h1>
+</center>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form class="form-inline my-2 my-lg-0" asp-action="Search" asp-controller="Chauffeur">
+    <p>
+        <input size="30" placeholder="tapez un Nom" type="search" name="name" />
+
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cinChauffeur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nomChauffeur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.typePermis)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cinChauffeur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nomChauffeur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.typePermis)
+                </td>
+                <td>
+
+                    <a asp-action="Edit" asp-route-id="@item.idChauffeur">
+                        <img src="https://img.icons8.com/fluency/25/undefined/edit.png" />
+                    </a> |
+                    <a asp-action="Details" asp-route-id="@item.idChauffeur">
+                        <img src="https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/25/undefined/external-view-graphic-design-icongeek26-linear-colour-icongeek26.png" />
+                    </a> |
+                    <a asp-action="Delete" asp-route-id="@item.idChauffeur">
+                        <img src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/25/undefined/external-delete-user-interface-wanicon-lineal-color-wanicon.png" />
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Index" asp-controller="Chauffeur"> All chauffeurs</a>
+

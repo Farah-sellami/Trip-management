@@ -1,0 +1,48 @@
+﻿@model HappyTrip.Models.Voyage
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Voyage</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateDep)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateDep)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateRetour)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateRetour)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.idAutobus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.idAutobus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.idChauffeur)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.idChauffeur)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.idExcur)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.idExcur)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.idVoyage">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
